@@ -162,11 +162,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/springapp/src/main/java/com/pcl/spring/shiro/MyCacheSessionDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="291">
               <caret line="109" column="9" lean-forward="true" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-19">
+              <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -325,6 +334,11 @@
             <path>
               <item name="spring" type="b2602c69:ProjectViewProjectNode" />
               <item name="spring" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spring" type="b2602c69:ProjectViewProjectNode" />
@@ -760,12 +774,12 @@
       <workItem from="1595576564835" duration="5192000" />
       <workItem from="1595813401563" duration="75411000" />
       <workItem from="1596101656876" duration="27340000" />
-      <workItem from="1596505620759" duration="4273000" />
+      <workItem from="1596505620759" duration="6067000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164681000" />
+    <option name="totallyTimeSpent" value="166475000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -797,14 +811,14 @@
       <window_info anchor="bottom" id="Run Dashboard" order="6" weight="0.3380102" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32908162" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.17554389" side_tool="true" weight="0.35841838" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5176294" side_tool="true" visible="true" weight="0.29757345" />
       <window_info anchor="bottom" id="Statistic" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32908162" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.32908162" />
-      <window_info anchor="bottom" id="Database Console" order="13" sideWeight="0.8244561" weight="0.31505102" />
-      <window_info anchor="bottom" id="Spring" order="14" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.45466155" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.32822478" />
+      <window_info anchor="bottom" id="Database Console" order="13" sideWeight="0.8244561" weight="0.3128991" />
+      <window_info anchor="bottom" id="Spring" order="14" weight="0.32950193" />
       <window_info anchor="bottom" id="Database Changes" order="15" weight="0.32908162" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="16" visible="true" weight="0.38314176" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="16" sideWeight="0.4823706" visible="true" weight="0.29757345" />
       <window_info anchor="bottom" id="Messages" order="17" sideWeight="0.49662414" weight="0.33290815" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -887,16 +901,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/springapp/src/main/java/com/pcl/spring/mapper/RolePermissionsMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/springapp/src/main/resources/mapper/RolePermissionsMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
@@ -1282,8 +1286,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/springapp/src/main/java/com/pcl/spring/shiro/MyCacheSessionDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="291">
           <caret line="109" column="9" lean-forward="true" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-19">
+          <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
         </state>
       </provider>
     </entry>
