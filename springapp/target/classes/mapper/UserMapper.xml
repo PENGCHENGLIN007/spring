@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pcl.spring.mapper.UserMapper" >
+
+    <resultMap id="BaseResultMap" type="com.pcl.spring.bean.User" >
+        <id column="ID" property="id" jdbcType="INTEGER" />
+        <result column="NAME" property="name" jdbcType="VARCHAR" />
+        <result column="PASSWORD" property="password" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap id="rolesResultMap" type="com.pcl.spring.bean.Role">
+        <id column="ROLE_ID" property="id" jdbcType="INTEGER"/>
+        <result column="ROLE_NAME" property="name" jdbcType="VARCHAR"/>
+        <collection property="permissions" javaType="java.util.Set" resultMap="permissionsResultMap"/>
+    </resultMap>
+
+    <resultMap id="permissionsResultMap" type="com.pcl.spring.bean.Permissions">
+        <id column="PERMISSIONS_ID" property="id" jdbcType="INTEGER"/>
+        <result column="PERMISSIONS_NAME" property="name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap id="allUserInfo" type="com.pcl.spring.bean.User" >
+        <id column="USER_ID" property="id" jdbcType="INTEGER" />
+        <result column="USER_NAME" property="name" jdbcType="VARCHAR" />
+        <result column="PASSWORD" property="password" jdbcType="VARCHAR"/>
+        <collection property="roles" javaType="java.util.Set" resultMap="rolesResultMap"/>
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        ID, NAME, PASSWORD
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select
+        <include refid="Base_Column_List" />
+        from user
+        where ID = #{id,jdbcType=INTEGER}
+    </select>
+
+    <select id = "selectAllUserInfoByName" resultMap="allUserInfo" parameterType="java.lang.String">
+        select DISTINCT USER_ID,USER_NAME,PASSWORD,ROLE_ID,ROLE_NAME,PERMISSIONS_ID,PERMISSIONS_NAME
+        from (
+                 select USER_ID,u.name as USER_NAME,u.password as PASSWORD,r.ID as ROLE_ID,r.NAME as ROLE_NAME,PERMISSIONS_ID,p.name as PERMISSIONS_NAME
+                 from user u,user_role ur,role r,permissions p ,role_permissions rp
+                 where u.NAME =#{name,jdbcType=VARCHAR} and u.ID = ur.USER_ID and r.ID = rp.ROLE_ID and p.ID = rp.PERMISSIONS_ID
+             ) a;
+
+    </select>
+
+    <insert id="insert" parameterType="com.pcl.spring.bean.User" >
+        insert into user (ID, NAME, PASSWORD)
+        values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.pcl.spring.bean.User" >
+        update user
+        <set >
+            <if test="name != null" >
+                NAME = #{name,jdbcType=VARCHAR},
+                PASSWORD = #{password,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=INTEGER}
+    </update>
+
+
+    <update id="updateByPrimaryKey" parameterType="com.pcl.spring.bean.User" >
+        update user
+        set NAME = #{name,jdbcType=VARCHAR},
+            PASSWORD = #{password,jdbcType=VARCHAR}
+        where ID = #{id,jdbcType=INTEGER}
+    </update>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+        delete from user
+        where ID = #{id,jdbcType=INTEGER}
+    </delete>
+
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pcl.spring.mapper.SessionMapper">
+    <cache/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.pcl.spring.bean.Session">
+        <id column="SESSIONID" property="sessionId"/>
+        <result column="SESSION" property="session"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID, SESSION_ID, SESSION
+    </sql>
+    <update id="create">
+        INSERT INTO session (sessionid,session) VALUES(#{sessionid},#{session})
+    </update>
+    <update id="set">
+        UPDATE session SET session=#{session} WHERE sessionid = #{sessionid}
+    </update>
+    <update id="delete">
+        DELETE FROM session WHERE sessionid = #{sessionid}
+    </update>
+    <select id="get" resultType="java.lang.String" useCache="true">
+        SELECT session FROM session WHERE sessionid = #{sessionid}
+    </select>
+    <select id="selectAll" resultType="com.pcl.spring.bean.Session">
+        SELECT <include refid="Base_Column_List"></include>
+        FROM session
+    </select>
+</mapper>

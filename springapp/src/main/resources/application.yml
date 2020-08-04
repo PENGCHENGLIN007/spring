@@ -1,0 +1,25 @@
+server:
+  port: 8080
+logging:
+  pattern:
+    file: "%d{yyyy/MM/dd-HH:mm} [%thread] %-5level %logger- %msg%n"
+  file:
+    name: application.log
+  level:
+    root: debug
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring?serverTimezone=UTC
+    username: root
+    password: 7758521
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#防止启动多个springboot实例时，启动第二个会导致第一个重启
+  devtools:
+    restart:
+      enabled: false
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.pcl.spring.bean
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    cache-enabled: true

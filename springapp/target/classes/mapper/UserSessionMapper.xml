@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pcl.spring.mapper.UserSessionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.pcl.spring.bean.UserSession">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="USER_ID" property="userId" jdbcType="INTEGER"/>
+        <result column="SESSION_ID" property="sessionId" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID, USER_ID, SESSION_ID
+    </sql>
+
+    <insert id="insert" parameterType="com.pcl.spring.bean.UserSession">
+        INSERT INTO user_session(user_id, session_id)
+        VALUES (#{userId},#{sessionId})
+    </insert>
+
+    <update id="updateByUserId" parameterType="java.lang.Integer">
+        update user_session
+        set SESSION_ID = #{sessionId}
+        where USER_ID = #{userId}
+    </update>
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        DELETE from user_session WHERE ID = #{id}
+    </delete>
+    <delete id="deleteByUserId" parameterType="Integer">
+        DELETE FROM user_session WHERE USER_ID = #{userId}
+    </delete>
+    <delete id="deleteBySessionId" parameterType="Integer">
+        DELETE FROM user_session WHERE SESSION_ID = #{sessionId}
+    </delete>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+         FROM user_session
+    </select>
+    <select id="selectById" resultType="java.lang.Integer">
+        SELECT <include refid="Base_Column_List"></include>
+        FROM user_session WHERE ID = #{id}
+    </select>
+    <select id="selectByUserId" resultType="java.lang.Integer">
+        SELECT <include refid="Base_Column_List"></include>
+        FROM user_session WHERE USER_ID = #{userId}
+    </select>
+    <select id="selectBySessionId" resultType="java.lang.Integer">
+        SELECT <include refid="Base_Column_List"></include>
+        FROM user_session WHERE SESSION_ID = #{sessionId}
+    </select>
+</mapper>
